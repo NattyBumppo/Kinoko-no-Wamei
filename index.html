@@ -22,8 +22,7 @@
       })(window, Function)
     </script>
 
-<body>
-<p><i>Page last updated 10/14/2019, 16:37:14 JST. Download .csv <a href="full_mushrooms_jp_en.csv">here</a>.</i></p><table id="mushroom_table" class="mushroom_table">
+<body onload="tf.extension('colsVisibility').hideCol(4);tf.extension('colsVisibility').hideCol(5);tf.extension('colsVisibility').hideCol(6);tf.extension('colsVisibility').hideCol(7);"><p><i>Page last updated 10/14/2019, 22:20:54 JST. Download .csv <a href="full_mushrooms_jp_en.csv">here</a>.</i></p><p><button onclick="javascript: tf.extension('colsVisibility').toggleCol(4);tf.extension('colsVisibility').toggleCol(5);tf.extension('colsVisibility').toggleCol(6);tf.extension('colsVisibility').toggleCol(7);">科と属データをトグル</button> <button onclick="javascript: tf.extension('colsVisibility').toggleCol(8);tf.extension('colsVisibility').toggleCol(9);">Mycobankデータをトグル</button> <button onclick="javascript: tf.extension('colsVisibility').toggleCol(2);tf.extension('colsVisibility').toggleCol(3);">目録データをトグル</button></p><table id="mushroom_table" class="mushroom_table">
 <thead><tr>
 <th>学名 (大菌輪)</th>
 <th>和名</th>
@@ -40955,8 +40954,12 @@
         msg_filter: 'Filtering...',
         responsive: true,
         themes: [{ name: 'mytheme' }],
-        single_filter: true,
-        extensions: [{ name: 'sort', types: 'string' }]
+        single_filter: false,
+        extensions: [{ name: 'sort', types: 'string' },
+        {
+            name: 'colsVisibility',
+            manager: false
+        }]
     };
     var tf = new TableFilter('mushroom_table', filtersConfig);
     tf.init();
